@@ -7,4 +7,5 @@ https://github.com/pyrogram/pyrogram/archive/asyncio.zip
 setuptools
 tgcrypto
 youtube-dl
-clang lib{jpeg-turbo,webp}-dev python{,-dev} zlib-dev
+clang 
+PyTurboJPEG
