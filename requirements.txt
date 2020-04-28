@@ -3,7 +3,7 @@ aria2p
 cryptg
 hachoir
 Pillow
-https://github.com/pyrogram/pyrogram/archive/asyncio.zip
+pyrogram
 setuptools
 tgcrypto
 youtube-dl

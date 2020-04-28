@@ -45,11 +45,11 @@ if __name__ == "__main__" :
         os.makedirs(DOWNLOAD_LOCATION)
     #
     app = Client(
-        "LeechBot",
+        "PublicBot",
         bot_token=TG_BOT_TOKEN,
         api_id=APP_ID,
         api_hash=API_HASH,
-        workers=343
+        workers=1023
     )
     #
     incoming_message_handler = MessageHandler(
@@ -81,12 +81,6 @@ if __name__ == "__main__" :
         filters=Filters.command(["exec"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(exec_message_handler)
-    #
-    rename_message_handler = MessageHandler(
-        rename_message_f,
-        filters=Filters.command(["rename"]) & Filters.chat(chats=AUTH_CHANNEL)
-    )
-    app.add_handler(rename_message_handler)
     #
     upload_document_handler = MessageHandler(
         upload_document_f,

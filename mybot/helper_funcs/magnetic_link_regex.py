@@ -15,7 +15,7 @@ import os
 import re
 
 
-MAGNETIC_LINK_REGEX = r"magnet\:\?xt\=urn\:btih\:([A-Z\d])"
+MAGNETIC_LINK_REGEX = r"magnet\:\?xt\=urn\:btih\:([A-Z])"
 # magnet:\?xt=urn:[a-z0-9]+:[a-z0-9]{32,40}&dn=.+&tr=.+/gi
 # magnet:\?xt=urn:[a-z0-9]+:[a-z0-9]{32,40}&dn=.+&tr=.+/gi
 # magnet:?xt=urn:btih:B05E84BA2455A85DE9F1A3CAC01A2B36E14CBFF1
