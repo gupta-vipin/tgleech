@@ -28,7 +28,7 @@ from mybot.helper_funcs.youtube_dl_extractor import extract_youtube_dl_formats
 
 
 async def incoming_message_f(client, message):
-    """/leech command"""
+    """/upload command"""
     i_m_sefg = await message.reply_text("processing", quote=True)
     is_zip = False
     if len(message.command) > 1:
@@ -44,12 +44,6 @@ async def incoming_message_f(client, message):
         aria_i_p = await aria_start()
         LOGGER.info(aria_i_p)
         current_user_id = message.from_user.id
-        # create an unique directory
-        new_download_location = os.path.join(
-            DOWNLOAD_LOCATION,
-            str(current_user_id),
-            str(time.time())
-        )
         # create download directory, if not exist
         if not os.path.isdir(new_download_location):
             os.makedirs(new_download_location)
@@ -66,7 +60,7 @@ async def incoming_message_f(client, message):
             # if FAILED, display the error message
             await i_m_sefg.edit_text(err_message)
     else:
-        await i_m_sefg.edit_text("**FCUK**! wat have you entered. Please read /help")
+        await i_m_sefg.edit_text("**FCUK**! wat have you entered.")
 
 
 async def incoming_youtube_dl_f(client, message):
@@ -79,29 +73,20 @@ async def incoming_youtube_dl_f(client, message):
     LOGGER.info(cf_name)
     if dl_url is not None:
         await i_m_sefg.edit_text("extracting links")
-        current_user_id = message.from_user.id
-        # create an unique directory
-        user_working_dir = os.path.join(DOWNLOAD_LOCATION, str(current_user_id))
-        # create download directory, if not exist
-        if not os.path.isdir(user_working_dir):
-            os.makedirs(user_working_dir)
         # list the formats, and display in button markup formats
         thumb_image, text_message, reply_markup = await extract_youtube_dl_formats(
             dl_url,
-            user_working_dir
+            ./,
         )
         if thumb_image is not None:
             await message.reply_photo(
                 photo=thumb_image,
-                quote=True,
-                caption=text_message,
-                reply_markup=reply_markup
+                quote=false,
             )
             await i_m_sefg.delete()
         else:
             await i_m_sefg.edit_text(
                 text=text_message,
-                reply_markup=reply_markup
             )
     else:
         # if no links found, delete the "processing" message
