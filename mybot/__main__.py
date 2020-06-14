@@ -56,24 +56,6 @@ if __name__ == "__main__" :
     )
     app.add_handler(incoming_youtube_dl_handler)
     #
-    cancel_message_handler = MessageHandler(
-        cancel_message_f,
-        filters=Filters.command(["cancel"]) 
-    )
-    app.add_handler(cancel_message_handler)
-    #
-    upload_document_handler = MessageHandler(
-        upload_document_f,
-        filters=Filters.command(["upload_f"]) 
-    )
-    app.add_handler(upload_document_handler)
-
-    #
-    call_back_button_handler = CallbackQueryHandler(
-        button
-    )
-    app.add_handler(call_back_button_handler)
-    #
     save_thumb_nail_handler = MessageHandler(
         save_thumb_nail,
         filters=Filters.command(["savethumbnail"]) 
