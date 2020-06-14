@@ -24,10 +24,6 @@ from mybot import (
 from pyrogram import Client, Filters, MessageHandler, CallbackQueryHandler
 
 from mybot.plugins.incoming_message_fn import incoming_message_f, incoming_youtube_dl_f
-from mybot.plugins.status_message_fn import (
-    cancel_message_f,
-    upload_document_f
-)
 from mybot.plugins.call_back_button_handler import button
 from mybot.plugins.custom_thumbnail import (
     save_thumb_nail,
